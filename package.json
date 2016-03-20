@@ -1,7 +1,7 @@
 {
   "name": "extract-banner",
   "description": "Extract a banner comment from a string of javascript.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/jonschlinkert/extract-banner",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/extract-banner",
