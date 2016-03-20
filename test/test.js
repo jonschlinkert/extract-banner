@@ -11,10 +11,10 @@ require('mocha');
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
-var extract = require('./');
+var extract = require('..');
 
 function read(fp) {
-  return fs.readFileSync(path.resolve('fixtures', fp), 'utf8');
+  return fs.readFileSync(path.resolve('test/fixtures', fp), 'utf8');
 }
 
 describe('extract', function() {
@@ -52,18 +52,23 @@ describe('extract', function() {
       ' *',
       ' * Copyright (c) 2016, Jon Schlinkert.',
       ' * Licensed under the MIT license.',
-      ' */',
+      ' */'
     ].join('\n');
     assert.equal(res, expected);
   });
 
-  it.only('should not extract config comments', function() {
+  it('should not extract config comments', function() {
     var res = extract(read('config-comment.js'));
     assert.equal(res, '');
   });
 
-  // it('should extract a normal comment from a string', function() {
-  //   var res = extract(read('comment.js'));
-  //   assert.equal(res, '');
-  // });
+  it('should return an empty string when no banner is found', function() {
+    var res = extract(read('no-banner.js'));
+    assert.equal(res, '');
+  });
+
+  it('should not extract a non-banner comments', function() {
+    var res = extract(read('comment.js'));
+    assert.equal(res, '');
+  });
 });
