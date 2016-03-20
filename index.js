@@ -17,8 +17,9 @@ module.exports = function(str, custom) {
 
   str = strip(bom(str)).replace(/^\s+/, '');
   var start = /^(\/[*!]+|\/\/)/.exec(str);
+
   if (!start) {
-    return false;
+    return '';
   }
 
   var names = ['global', 'jshint', 'eslint'];
@@ -29,17 +30,23 @@ module.exports = function(str, custom) {
   var chars = start[0];
   str += '\n';
 
-  var end = chars === '//'
+  var isLine = chars === '/';
+
+  var end = isLine
     ? str.indexOf('\n')
     : str.indexOf('*/');
 
   if (end === -1) {
-    return false;
+    return '';
   }
 
-  var comment = str.slice(chars.length, end);
-  comment = comment.replace(/^[\s\W]+|[\s\W]+$/g, '');
+  var comment = str.slice(0, end + (isLine ? 1 : 2));
+  var inner = str.slice(chars.length, end);
+  inner = inner.replace(/^[\s\W]+|[\s\W]+$/g, '');
 
   var re = new RegExp('^' + names.join('|') + '[-: \\t]?');
-  return !re.test(comment);
+  if (re.test(inner)) {
+    return '';
+  }
+  return comment;
 };
