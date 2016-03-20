@@ -18,9 +18,7 @@ Works for block and line comments.
 var extract = require('extract-banner');
 ```
 
-**Heads up!**
-
-: banner comments may be preceded by only whitespace and/or `"use strict";` statements. Aside from those exceptions a banner comment must be the first thing in a string.
+**Heads up!**: banner comments may be preceded by only whitespace and/or `"use strict";` statements. Aside from those exceptions a banner comment must be the first thing in a string.
 
 **Example**
 
