@@ -1,6 +1,6 @@
 # extract-banner [![NPM version](https://img.shields.io/npm/v/extract-banner.svg)](https://www.npmjs.com/package/extract-banner) [![Build Status](https://img.shields.io/travis/jonschlinkert/extract-banner.svg)](https://travis-ci.org/jonschlinkert/extract-banner)
 
-> Extract the banner from a string of javascript.
+> Extract a banner comment from a string of javascript.
 
 ## Install
 
@@ -12,23 +12,29 @@ $ npm install extract-banner --save
 
 ## Usage
 
+Works for block and line comments.
+
 ```js
 var extract = require('extract-banner');
 ```
+
+**Heads up!**
+
+: banner comments may be preceded by only whitespace and/or `"use strict";` statements. Aside from those exceptions a banner comment must be the first thing in a string.
 
 **Example**
 
 ```js
 var fs = require('fs');
 var extract = require('extract-banner');
-var str = fs.readFileSync('fixtures/protected.js', 'utf8');
+var str = fs.readFileSync('fixtures/banner.js', 'utf8');
 var banner = exract(str);
 ```
 
 Results in:
 
 ```js
-/*!
+/**
  * extract-banner <https://github.com/jonschlinkert/extract-banner>
  *
  * Copyright (c) 2016, Jon Schlinkert.
@@ -36,19 +42,27 @@ Results in:
  */
 ```
 
+## Related projects
+
+* [add-banner](https://www.npmjs.com/package/add-banner): Add a banner to a string. Banners are just Lo-Dash/underscore templates, if a custom one… [more](https://www.npmjs.com/package/add-banner) | [homepage](https://github.com/jonschlinkert/add-banner)
+* [has-banner](https://www.npmjs.com/package/has-banner): Returns true if a file has a banner code comment. Used for linting. | [homepage](https://github.com/jonschlinkert/has-banner)
+* [strip-banner](https://www.npmjs.com/package/strip-banner): Strip banners from code. | [homepage](https://github.com/jonschlinkert/strip-banner)
+* [update-banner](https://www.npmjs.com/package/update-banner): Add or update a banner in a string. | [homepage](https://github.com/jonschlinkert/update-banner)
+* [write-banner](https://www.npmjs.com/package/write-banner): Add a banner to any file. | [homepage](https://github.com/jonschlinkert/write-banner)
+
 ## Contributing
 
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/jonschlinkert/extract-banner/issues/new).
 
 ## Building docs
 
-Generate readme and API documentation with [verb][]:
+Generate readme and API documentation with [verb](https://github.com/verbose/verb):
 
 ```sh
 $ npm install verb && npm run docs
 ```
 
-Or, if [verb][] is installed globally:
+Or, if [verb](https://github.com/verbose/verb) is installed globally:
 
 ```sh
 $ verb

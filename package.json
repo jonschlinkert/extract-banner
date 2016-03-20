@@ -1,6 +1,6 @@
 {
   "name": "extract-banner",
-  "description": "Extract the banner from a string of javascript.",
+  "description": "Extract a banner comment from a string of javascript.",
   "version": "0.1.0",
   "homepage": "https://github.com/jonschlinkert/extract-banner",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
@@ -29,7 +29,13 @@
   },
   "verb": {
     "related": {
-      "list": []
+      "list": [
+        "has-banner",
+        "strip-banner",
+        "add-banner",
+        "write-banner",
+        "update-banner"
+      ]
     },
     "run": true,
     "toc": false,
