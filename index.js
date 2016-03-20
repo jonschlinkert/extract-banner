@@ -30,7 +30,7 @@ module.exports = function(str, custom) {
   var chars = start[0];
   str += '\n';
 
-  var isLine = chars === '/';
+  var isLine = chars === '//';
 
   var end = isLine
     ? str.indexOf('\n')
