@@ -1,0 +1,50 @@
+{
+  "name": "extract-banner",
+  "description": "Extract the banner from a string of javascript.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/extract-banner",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/extract-banner",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/extract-banner/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "strip-bom-string": "^0.1.2",
+    "strip-use-strict": "^0.1.0"
+  },
+  "devDependencies": {
+    "gulp-format-md": "^0.1.7",
+    "mocha": "*"
+  },
+  "verb": {
+    "related": {
+      "list": []
+    },
+    "run": true,
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "reflinks": [
+      "verb"
+    ],
+    "lint": {
+      "reflinks": true
+    }
+  }
+}
