@@ -26,7 +26,7 @@ var extract = require('extract-banner');
 var fs = require('fs');
 var extract = require('extract-banner');
 var str = fs.readFileSync('fixtures/banner.js', 'utf8');
-var banner = exract(str);
+var banner = extract(str);
 ```
 
 Results in:
